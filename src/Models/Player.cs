@@ -25,7 +25,7 @@ namespace HGV.Orchid.Models
       
         public List<float> graph_net_worth { get; }
   
-        public List<InventorySnapshot> inventory_snapshot { get; }
+        // public List<InventorySnapshot> inventory_snapshot { get; }
     
         public bool avg_stats_calibrated { get; set; }
 
@@ -37,11 +37,11 @@ namespace HGV.Orchid.Models
         
         public uint player_slot { get; set; }
         
-        public List<CSOEconItem> equipped_econ_items { get; }
+        // public List<CSOEconItem> equipped_econ_items { get; }
        
-        public List<PlayerKill> kills { get; }
+        // public List<PlayerKill> kills { get; }
         
-        public List<ItemPurchase> items { get; }
+        // public List<ItemPurchase> items { get; }
         
         public uint avg_kills_x16 { get; set; }
         
@@ -97,9 +97,9 @@ namespace HGV.Orchid.Models
         
         public uint misses { get; set; }
         
-        public List<CMatchPlayerAbilityUpgrade> ability_upgrades { get; }
+        // public List<CMatchPlayerAbilityUpgrade> ability_upgrades { get; }
 
-        public List<CMatchAdditionalUnitInventory> additional_units_inventory { get; }
+        // public List<CMatchAdditionalUnitInventory> additional_units_inventory { get; }
        
         public uint tower_damage { get; set; }
       

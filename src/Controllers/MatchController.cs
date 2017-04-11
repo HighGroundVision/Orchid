@@ -7,38 +7,44 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 // HGV
 using HGV.Crystalys;
+using SteamKit2.GC.Dota.Internal;
 
 namespace HGV.Orchid.Controllers
 {
     [Route("api/[controller]")]
     public class MatchController : Controller
     {
-        // GET api/match/5654634654456345
+        // GET api/match/3111014659
         [HttpGet("{id}")]
         public async Task<string> Get(long id)
         {
-            try
-            {
-                var steamUserName = "Thantsking";
-                var steamPassword = "aPhan3sah";
+            
+            var steamUserName = "Thantsking";
+            var steamPassword = "aPhan3sah";
 
-                using (var gameClient = new DotaGameClient())
+            using (var gameClient = new DotaGameClient(5))
+            {
+                try
                 {
                     await gameClient.Connect(steamUserName, steamPassword);
+                }
+                catch (Exception ex)
+                {
+                    throw new TimeoutException("Failed to connect.", ex);
+                }
 
-                    // Download match details from game client
+                try
+                {
                     var details = await gameClient.DownloadMatchData(id);
-
-                    // Use by pass to just download the replay from a know exist match details
                     var meta = await gameClient.DownloadMeta(id, (int)details.cluster, (int)details.replay_salt);
-
-                    return id.ToString();
+                }
+                catch (Exception ex)
+                {
+                    throw new ApplicationException("Failed to download meta", ex);
                 }
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Failed to Get match data.", ex);
-            }
+
+            return DateTime.Now.Ticks.ToString();
         }
     }
 }
