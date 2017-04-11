@@ -12,11 +12,11 @@ using SteamKit2.GC.Dota.Internal;
 namespace HGV.Orchid.Controllers
 {
     [Route("api/[controller]")]
-    public class MatchController : Controller
+    public class ReplayController : Controller
     {
         // GET api/match/3111014659
         [HttpGet("{id}")]
-        public async Task<string> Get(long id)
+        public async Task<byte[]> Get(long id)
         {
             var steamUserName = "Thantsking";
             var steamPassword = "aPhan3sah";
@@ -34,16 +34,13 @@ namespace HGV.Orchid.Controllers
 
                 try
                 {
-                    var details = await gameClient.DownloadMatchData(id);
-                    var meta = await gameClient.DownloadMeta(id, (int)details.cluster, (int)details.replay_salt);
+                    return await gameClient.DownloadReplay(id);
                 }
                 catch (Exception ex)
                 {
                     throw new ApplicationException("Failed to download meta", ex);
                 }
             }
-
-            return DateTime.Now.Ticks.ToString();
         }
     }
 }
