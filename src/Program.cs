@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using SteamKit2;
 
-namespace HGV.Orchid
+namespace Test
 {
     public class Program
     {
         public static void Main(string[] args)
         {
+            SteamDirectory.Initialize().Wait();
+
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
-                //.UseApplicationInsights()
+                .UseApplicationInsights()
                 .Build();
 
             host.Run();

@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HGV.Orchid", "src\HGV.Orchid.csproj", "{AECE1BA5-536C-4C26-9B8C-67EEB0A76EFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HGV.Orchid", "src\HGV.Orchid.csproj", "{0A3DF0FB-104E-4CE1-A0CC-6408A857605D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E823AE03-40B8-460A-B8C0-0B075B75C3E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5D086432-94C3-4D99-8AC3-99EE4E2DDA69}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HGV.Orchid.Tests", "tests\HGV.Orchid.Tests.csproj", "{0B5C6D63-507C-4A15-8049-63E3BE0747B3}"
 EndProject
@@ -13,10 +17,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AECE1BA5-536C-4C26-9B8C-67EEB0A76EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AECE1BA5-536C-4C26-9B8C-67EEB0A76EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AECE1BA5-536C-4C26-9B8C-67EEB0A76EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AECE1BA5-536C-4C26-9B8C-67EEB0A76EFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A3DF0FB-104E-4CE1-A0CC-6408A857605D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A3DF0FB-104E-4CE1-A0CC-6408A857605D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A3DF0FB-104E-4CE1-A0CC-6408A857605D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A3DF0FB-104E-4CE1-A0CC-6408A857605D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0B5C6D63-507C-4A15-8049-63E3BE0747B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0B5C6D63-507C-4A15-8049-63E3BE0747B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B5C6D63-507C-4A15-8049-63E3BE0747B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -25,7 +29,11 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0A3DF0FB-104E-4CE1-A0CC-6408A857605D} = {E823AE03-40B8-460A-B8C0-0B075B75C3E5}
+		{0B5C6D63-507C-4A15-8049-63E3BE0747B3} = {5D086432-94C3-4D99-8AC3-99EE4E2DDA69}
+	EndGlobalSection
 	GlobalSection(CodealikeProperties) = postSolution
-		SolutionGuid = 51e5730a-0d53-4b94-b26a-a818c05beedc
+		SolutionGuid = 6e00eefb-fb95-47bc-b8f4-03dba5bc0fcf
 	EndGlobalSection
 EndGlobal

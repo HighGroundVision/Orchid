@@ -1,49 +1,32 @@
-﻿// .NET
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-// Microsoft
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-// HGV
 using HGV.Crystalys;
-using SteamKit2.GC.Dota.Internal;
 
 namespace HGV.Orchid.Controllers
 {
-    [Route("api/[controller]")]
+    [Produces("application/json")]
+    [Route("api/match")]
     public class MatchController : Controller
     {
+        DotaClient DotaClient { get; set; }
+
+        public MatchController(DotaClient dotaClient)
+        {
+            this.DotaClient = dotaClient;
+        }
+
         // GET api/match/3111014659
         [HttpGet("{id}")]
-        public async Task<string> Get(long id)
+        public async Task<SteamKit2.GC.Dota.Internal.CDOTAMatchMetadata> Get(long id)
         {
-            var steamUserName = "Thantsking";
-            var steamPassword = "aPhan3sah";
+            var data = this.DotaClient.DownloadMatchData((ulong)id);
+            var meta = await this.DotaClient.DownloadMeta(data.match_id, data.cluster, data.replay_salt);
 
-            using (var gameClient = new DotaGameClient(timeout_seconds: 5))
-            {
-                try
-                {
-                    await gameClient.Connect(steamUserName, steamPassword);
-                }
-                catch (Exception ex)
-                {
-                    throw new TimeoutException("Failed to connect.", ex);
-                }
-
-                try
-                {
-                    var details = await gameClient.DownloadMatchData(id);
-                    var meta = await gameClient.DownloadMeta(id, (int)details.cluster, (int)details.replay_salt);
-                }
-                catch (Exception ex)
-                {
-                    throw new ApplicationException("Failed to download meta", ex);
-                }
-            }
-
-            return DateTime.Now.Ticks.ToString();
+            return meta;
         }
     }
 }

@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using HGV.Crystalys;
 
-namespace HGV.Orchid
+namespace Test
 {
     public class Startup
     {
@@ -19,7 +20,6 @@ namespace HGV.Orchid
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
-
             Configuration = builder.Build();
         }
 
@@ -28,6 +28,10 @@ namespace HGV.Orchid
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var gameClient = new DotaClient("Thantsking", "aPhan3sah");
+            gameClient.Connect();
+            services.AddSingleton<DotaClient>(gameClient);
+
             // Add framework services.
             services.AddMvc();
         }
@@ -39,11 +43,23 @@ namespace HGV.Orchid
             loggerFactory.AddDebug();
 
             if (env.IsDevelopment())
+            {
                 app.UseDeveloperExceptionPage();
+            }
             else
+            {
                 app.UseStatusCodePages();
+                // app.UseExceptionHandler("/Home/Error");
+            }
 
-            app.UseMvc();
+            app.UseStaticFiles();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }

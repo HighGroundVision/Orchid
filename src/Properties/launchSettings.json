@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:53753/",
+      "applicationUrl": "http://localhost:56829/",
       "sslPort": 0
     }
   },
@@ -11,19 +11,17 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/match/3111014659",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "HGV.Orchid": {
+    "Test": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/match/3111014659",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:53754"
+      "applicationUrl": "http://localhost:56830"
     }
   }
 }
