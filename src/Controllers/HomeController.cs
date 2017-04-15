@@ -10,7 +10,7 @@ namespace Test.Controllers
     {
         public IActionResult Index()
         {
-            return Redirect("index.html");
+            return Redirect("welcome.html");
         }
     }
 }

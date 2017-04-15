@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using HGV.Crystalys;
+using HGV.Orchid.Models;
 
 namespace HGV.Orchid.Controllers
 {
@@ -21,12 +22,15 @@ namespace HGV.Orchid.Controllers
 
         // GET api/match/3111014659
         [HttpGet("{id}")]
-        public async Task<SteamKit2.GC.Dota.Internal.CDOTAMatchMetadata> Get(long id)
+        public async Task<Match> Get(long id)
         {
             var data = this.DotaClient.DownloadMatchData((ulong)id);
             var meta = await this.DotaClient.DownloadMeta(data.match_id, data.cluster, data.replay_salt);
+            var model = new Match();
 
-            return meta;
+            // Translate the data and meta to model
+
+            return model;
         }
     }
 }
