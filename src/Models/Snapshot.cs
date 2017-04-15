@@ -12,6 +12,6 @@ namespace HGV.Orchid.Models
         public uint deaths { get; set; }   
         public uint assists { get; set; }
         public uint level { get; set; }
-        public List<uint> inventory { get; }
+        public List<uint> inventory { get; set; }
     }
 }

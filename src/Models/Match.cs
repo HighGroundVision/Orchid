@@ -30,8 +30,8 @@ namespace HGV.Orchid.Models
         public ulong lobby_id { get; set; }
         public uint lobby_type { get; set; }
 
-        public List<uint> tower_status { get; }
-        public List<uint> barracks_status { get; }
+        public List<uint> tower_status { get; set; }
+        public List<uint> barracks_status { get; set; }
         public uint first_blood_time { get; set; }
 
         public uint cluster { get; set; }
@@ -41,6 +41,13 @@ namespace HGV.Orchid.Models
         public List<Team> teams { get; }
 
         public uint match_outcome { get; set; }
+
+        public Match()
+        {
+            this.teams = new List<Team>();
+            this.tower_status = new List<uint>();
+            this.barracks_status = new List<uint>();
+        }
     }
 
 }

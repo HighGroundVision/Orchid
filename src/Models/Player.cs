@@ -23,18 +23,18 @@ namespace HGV.Orchid.Models
 
         // AVG
         public bool avg_stats_calibrated { get; set; }
-        public uint avg_kills_x16 { get; set; }
-        public uint avg_deaths_x16 { get; set; }
-        public uint avg_assists_x16 { get; set; }
-        public uint avg_gpm_x16 { get; set; }
-        public uint avg_xpm_x16 { get; set; }
+        public uint avg_kills { get; set; }
+        public uint avg_deaths { get; set; }
+        public uint avg_assists { get; set; }
+        public uint avg_gpm { get; set; }
+        public uint avg_xpm { get; set; }
 
         // Best
-        public uint best_xpm_x16 { get; set; }
+        public uint best_xpm { get; set; }
         public uint best_win_streak { get; set; }
-        public uint best_gpm_x16 { get; set; }
-        public uint best_kills_x16 { get; set; }
-        public uint best_assists_x16 { get; set; }
+        public uint best_gpm { get; set; }
+        public uint best_kills { get; set; }
+        public uint best_assists { get; set; }
 
         // Score
         public float fight_score { get; set; }
@@ -49,7 +49,7 @@ namespace HGV.Orchid.Models
         public uint search_rank { get; set; }
         public uint search_rank_uncertainty { get; set; }
         public int rank_uncertainty_change { get; set; }
-        public uint rank_change { get; set; }
+        public int rank_change { get; set; }
         public bool solo_rank { get; set; }
         public uint previous_rank { get; set; }
         public float scaled_metric { get; set; }
@@ -81,16 +81,27 @@ namespace HGV.Orchid.Models
         public uint gpm { get; set; }
         public uint xpm { get; set; }
 
-        public List<uint> inventory { get; set; }                   // public List<InventorySnapshot> inventory_snapshot { get; }
-        public List<uint> additional_units_inventory { get; set; }  // public List<CMatchAdditionalUnitInventory> additional_units_inventory { get; }
+        public List<uint> inventory { get; set; }                   
+        public List<AdditionalUnitInventory> additional_units_inventory { get; set; }  
 
-        public List<float> graph_net_worth { get; }
+        public List<float> graph_net_worth { get; set; }
 
         public List<Snapshot> snapshot { get; set; }
-        public List<ItemPurchase> purchases { get; set; }           // public List<ItemPurchase> items { get; }
-        public List<AbilityUpgrade> upgrades { get; set; }          // public List<CMatchPlayerAbilityUpgrade> ability_upgrades { get; }
-        public List<Fight> fights { get; }                          // public List<PlayerKill> kills { get; }
-        public List<PermanentBuff> permanent_buffs { get; set; }    // public List<CMatchPlayerPermanentBuff> permanent_buffs { get; }
+        public List<ItemPurchase> purchases { get; set; }           
+        public List<AbilityUpgrade> upgrades { get; set; }          
+        public List<Fight> fights { get; set; }                     
+        public List<PermanentBuff> permanent_buffs { get; set; }
 
+        public Player()
+        {
+            this.inventory = new List<uint>();
+            this.additional_units_inventory = new List<AdditionalUnitInventory>();
+            this.graph_net_worth = new List<float>();
+            this.snapshot = new List<Snapshot>();
+            this.purchases = new List<ItemPurchase>();
+            this.upgrades = new List<AbilityUpgrade>();
+            this.fights = new List<Fight>();
+            this.permanent_buffs = new List<PermanentBuff>();
+        }
     }
 }

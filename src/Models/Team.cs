@@ -21,13 +21,25 @@ namespace HGV.Orchid.Models
         public bool first_pick { get; set; }
         public uint captain_player_id { get; set; }
         public uint penalty { get; set; }
-        public List<uint> picks { get; }
-        public List<uint> bans { get; }
+        public List<uint> picks { get; set; }
+        public List<uint> bans { get; set; }
         
-        public List<float> graph_net_worth { get; }
-        public List<float> graph_gold_earned { get; }
-        public List<float> graph_experience { get; }
+        public List<float> graph_net_worth { get; set; }
+        public List<float> graph_gold_earned { get; set; }
+        public List<float> graph_experience { get; set; }
 
-        public List<Player> players { get; }
+        public List<Player> players { get; set; }
+
+        public Team()
+        {
+            this.picks = new List<uint>();
+            this.bans = new List<uint>();
+
+            this.graph_experience = new List<float>();
+            this.graph_gold_earned = new List<float>();
+            this.graph_net_worth = new List<float>();
+
+            this.players = new List<Player>();
+        }
     }
 }
