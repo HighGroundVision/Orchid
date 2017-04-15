@@ -9,6 +9,7 @@
     <Content Include="wwwroot\welcome.html" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="HGV.Crystalys" Version="1.0.0.35" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
@@ -22,20 +23,6 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="HGV.Crystalys">
-      <HintPath>..\..\Crystalys\src\bin\Debug\HGV.Crystalys.dll</HintPath>
-    </Reference>
-    <Reference Include="Noemax.Compression.Net4.Trial">
-      <HintPath>..\..\Crystalys\src\bin\Debug\Noemax.Compression.Net4.Trial.dll</HintPath>
-    </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>..\..\Crystalys\src\bin\Debug\protobuf-net.dll</HintPath>
-    </Reference>
-    <Reference Include="SteamKit2">
-      <HintPath>..\..\Crystalys\src\bin\Debug\SteamKit2.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
