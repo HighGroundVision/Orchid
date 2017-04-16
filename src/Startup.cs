@@ -32,6 +32,8 @@ namespace Test
             gameClient.Connect();
             services.AddSingleton<DotaClient>(gameClient);
 
+            services.AddResponseCaching();
+
             // Add framework services.
             services.AddMvc();
         }
@@ -41,6 +43,8 @@ namespace Test
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            app.UseResponseCaching();
 
             if (env.IsDevelopment())
             {

@@ -22,6 +22,7 @@ namespace HGV.Orchid.Controllers
 
         // GET api/match/3111014659
         [HttpGet("{id}")]
+        [ResponseCache(Duration = 3600, VaryByQueryKeys = new string[] { "id" })]
         public async Task<Match> Get(long id)
         {
             var data = this.DotaClient.DownloadMatchData((ulong)id);
