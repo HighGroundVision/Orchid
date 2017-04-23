@@ -20,6 +20,12 @@ namespace Test
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
+            if (env.IsDevelopment())
+            {
+                builder.AddUserSecrets<Startup>();
+            }
+
             Configuration = builder.Build();
         }
 
@@ -28,7 +34,11 @@ namespace Test
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var gameClient = new DotaClient("Thantsking", "aPhan3sah");
+            var section = this.Configuration.GetSection("Site");
+            var username = section.GetValue<string>("SteamUsername");
+            var password = section.GetValue<string>("SteamPassword");
+
+            var gameClient = new DotaClient(username, password);
             gameClient.Connect();
             services.AddSingleton<DotaClient>(gameClient);
 
