@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HGV.Orchid", "src\HGV.Orchid.csproj", "{0A3DF0FB-104E-4CE1-A0CC-6408A857605D}"
 EndProject
@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E823AE03-40B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5D086432-94C3-4D99-8AC3-99EE4E2DDA69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HGV.Orchid.Test", "tests\HGV.Orchid.Test\HGV.Orchid.Test.csproj", "{82D790BD-7572-4B1D-A05E-2D5B19755DD1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HGV.Orchid.Test", "tests\HGV.Orchid.Test.csproj", "{82D790BD-7572-4B1D-A05E-2D5B19755DD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
