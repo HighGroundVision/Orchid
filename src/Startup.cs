@@ -56,15 +56,7 @@ namespace Test
 
             app.UseResponseCaching();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseStatusCodePages();
-                // app.UseExceptionHandler("/Home/Error");
-            }
+            app.UseDeveloperExceptionPage();
 
             app.UseStaticFiles();
 
