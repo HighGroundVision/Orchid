@@ -5,10 +5,6 @@
     <RuntimeIdentifier>win7-x86</RuntimeIdentifier>
     <UserSecretsId>ba45e994-2c81-4a8c-870e-bf50c06588b8</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Content Include="wwwroot\welcome.html" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="HGV.Crystalys" Version="1.0.0.35" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
